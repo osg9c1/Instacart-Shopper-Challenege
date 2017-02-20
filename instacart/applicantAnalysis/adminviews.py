@@ -30,9 +30,6 @@ class ApplicantAnalysisView(TemplateView):
         if app_analysis_form.is_valid():
             start_date = app_analysis_form.cleaned_data.get("start_date")
             end_date = app_analysis_form.cleaned_data.get("end_date")
-            if end_date <= start_date:
-                app_analysis_form._errors["end_date"] = str("End date should be greater than start date.")
-
             json_data = self.compute_applicant_data(start_date, end_date)
         else:
             return super(TemplateView, self).render_to_response({"form": app_analysis_form})
