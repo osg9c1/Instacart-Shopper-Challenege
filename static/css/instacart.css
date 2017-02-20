@@ -3,7 +3,7 @@
 body {
 	margin: 0px 0px 0px 0px;
 	padding: 0;
-	background: #009000 url(images/bg01.jpg) repeat;
+    background: #009000 url(images/grocery2.jpg) repeat;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	color: #4b4b4b;
@@ -70,9 +70,11 @@ hr {
 #wrapper {
 	overflow: hidden;
 	background: #FFFFFF;
+	opacity: 0.9;
 box-shadow: 
         inset 0px 11px 8px -20px #CCC,
         inset 0px -11px 8px -10px #CCC;}
+
 
 .container {
 	width: 1200px;
@@ -89,6 +91,7 @@ box-shadow:
 	overflow: hidden;
 	height: 100px; !important;
 	offset-height: 50px !important;
+
 }
 
 #header {
@@ -209,7 +212,7 @@ box-shadow:
 
 	letter-spacing: -1px;
 	font-size: 16px;
-	color: #8F8F8F;
+	color: black;
 }
 
 #wide-content .main-content {
