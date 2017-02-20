@@ -1,9 +1,8 @@
 # Django settings for mysite project.
 import os
 
-BASE_DIR = "/Users/sambhav86/PycharmProjects/InstacartShopperChallenge/instacart"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -65,7 +64,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in FSTATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -82,7 +81,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     #"/home/admin1/django/django/static",
-    os.path.join(PROJECT_ROOT, "static"),
+    os.path.join(BASE_DIR, "static"),
 )
 
 # List of finder classes that know how to find static files in
@@ -124,14 +123,14 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.dirname(PROJECT_ROOT), 'static', 'templates'),
+    os.path.join(os.path.dirname(BASE_DIR), 'static', 'templates'),
     #"/home/admin1/django/django/static/templates"
 )
 
 if DEBUG:
     MEDIA_URL = '\media'
-    STATIC_ROOT = os.path.join(os.path.dirname(PROJECT_ROOT), "static", "static-only")
-    MEDIA_ROOT = os.path.join(os.path.dirname(PROJECT_ROOT), "static", "media")
+    STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "static-only")
+    MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "media")
     STATICFILES_DIRS = (
         os.path.join(os.path.dirname(BASE_DIR), "static"),
     )

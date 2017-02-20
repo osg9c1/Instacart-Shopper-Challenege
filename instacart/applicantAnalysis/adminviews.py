@@ -28,8 +28,6 @@ class ApplicantAnalysisView(TemplateView):
         app_analysis_form = ApplicantAnalysisForm(request.POST)
         json_data = {}
         if app_analysis_form.is_valid():
-            # start_date =  datetime.strptime(app_analysis_form.cleaned_data.get("start_date"), "%Y-%m-%d")
-            # end_date =  datetime.strptime(app_analysis_form.cleaned_data.get("end_date"), "%Y-%m-%d")
             start_date = app_analysis_form.cleaned_data.get("start_date")
             end_date = app_analysis_form.cleaned_data.get("end_date")
             if end_date <= start_date:
