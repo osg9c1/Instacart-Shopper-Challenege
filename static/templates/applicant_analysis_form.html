@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div id="wrapper">
+	<div id="page-wrapper">
+		<div id="page">
+
+			<div id="wide-content">
+                 <ul class="messages">
+    {% for message in messages %}
+    <li style="color: orange;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+
+              <div class="main-content">
+                    <p>
+					 <form method="POST" action=''> {% csrf_token %}
+                {{form.as_p}}
+               <input class="button-style" type="submit" value="Submit">
+
+            </form>
+                   </p>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+     {% endblock content %}

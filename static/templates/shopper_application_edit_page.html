@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="wrapper">
+	<div id="page-wrapper">
+		<div id="page">
+			<div id="wide-content">
+
+					<h2>Hey Shopper! You can edit your <br>application and submit again</h2>
+                <div class="main-content">
+
+                     <h3>Application Status :  {{workflow_state}}</h3>
+                    <br>
+                    <p>
+					 <form method="POST" action=''> {% csrf_token %}
+                 <table>
+                {{form.as_table}}
+                       </table>
+               <input class="button-style" type="submit" value="Submit">
+
+            </form>
+                   </p>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+    </div>
+
+
+{% endblock content %}
