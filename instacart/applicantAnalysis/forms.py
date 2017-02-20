@@ -12,5 +12,7 @@ class ApplicantAnalysisForm(forms.Form):
         start_date = self.cleaned_data['start_date']
         if end_date < start_date:
             raise ValidationError(_('End Date should be greater than Start Date'))
+        else:
+            return end_date
 
 

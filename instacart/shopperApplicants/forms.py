@@ -9,7 +9,7 @@ class ShopperRegistrationForm(forms.Form):
                                 error_message=(
                                 "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."))
     zipcode = forms.RegexField(regex=r'^[0-9]{5}(?:-[0-9]{4})?$',
-                               widget=forms.TextInput(attrs={'placeholder': '00000000'}), label="Zipcode",
+                               widget=forms.TextInput(attrs={'placeholder': '00000'}), label="Zipcode",
                                error_message=(
                                "ZipCode must be entered in the format: '99999'. Up to 5 digits allowed."))
     referral_code = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Optional'}),
