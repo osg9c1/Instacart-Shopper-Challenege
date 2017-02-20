@@ -118,5 +118,4 @@ class ApplicantAnalysisView(TemplateView):
                     final_data.update({date_str: applicant_workflow_count_dict})
         else:
             final_data = "No results found for given date range"
-
         return final_data
