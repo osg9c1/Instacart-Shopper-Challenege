@@ -1,10 +1,8 @@
 # Django settings for mysite project.
 import os
-import dj_database_url
 
-db_from_env = dj_database_url.config(conn_max_age=500)
 
-BASE_DIR = "/Users/sambhav86/PycharmProjects/Instacart/instacart"
+BASE_DIR = "/Users/sambhav86/PycharmProjects/InstacartShopperChallenge/instacart"
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -27,7 +25,7 @@ DATABASES = {
         'PORT': '',  # Set to empty string for default. Not used with sqlite3.
     }
 }
-DATABASES['default'].update(db_from_env)
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
@@ -79,7 +77,7 @@ STATIC_URL = '/static/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
@@ -160,7 +158,7 @@ INSTALLED_APPS = (
     #'django_evolution',
     'instacart',
     'instacart.applicantAnalysis',
-    'instacart.shopperApplicants'
+
 )
 
 
