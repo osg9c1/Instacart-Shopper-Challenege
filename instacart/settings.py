@@ -156,6 +156,7 @@ INSTALLED_APPS = (
     #'django_evolution',
     'instacart',
     'instacart.applicantAnalysis',
+    'instacart.shopperApplicants'
 )
 
 

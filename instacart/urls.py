@@ -11,6 +11,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 
+    url(r'^instacart/', include('instacart.shopperApplicants.urls')),
     url(r'^instacart/', include('instacart.applicantAnalysis.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
