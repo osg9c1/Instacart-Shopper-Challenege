@@ -14,8 +14,8 @@
 
 ## Setup Application
 * Checkout Instacart-Shopping-Challenge from github
-    * git clone https://github.com/osg9c1/Instacart-Shopping-Challenge.git
-    * git checkout local
+    * git clone https://github.com/osg9c1/Instacart-Shopper-Challenege.git
+    * cd Instacart-Shopper-Challenege/instacart
 * add the development.sqlite3 to Instacart-Shopping-Challenge/instacart/, as the 
   size of the file is larger than 100MB so I wasn't able to push to github.
 
