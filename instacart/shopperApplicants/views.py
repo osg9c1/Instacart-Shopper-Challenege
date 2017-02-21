@@ -9,6 +9,10 @@ from models import ShopperApplicants
 from django.core.mail import EmailMultiAlternatives
 from django.contrib import messages
 from django.contrib.auth.hashers import *
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 class ShopperApplicantBaseClass(TemplateView):
@@ -149,6 +153,7 @@ class ShopperApplicationView(ShopperApplicantBaseClass):
         msg = EmailMultiAlternatives(subject, "", "instacart@gmail.com", [email_id])
         msg.attach_alternative(message, "text/html")
         success = msg.send()
+        logger.debug("Email sent to {0}".format(email_id))
         return success
 
 
@@ -279,6 +284,9 @@ class ShopperLoginView(ShopperApplicantBaseClass):
                 except ValueError:
                     errors = shopper_login_form._errors.setdefault("password", ErrorList())
                     errors.append(self.LOGIN_PASSWORD_INCORRECT_MSG)
+                except Exception as e:
+                    logger.debug("{0} Error while logging : {1}".format(email, str(e)))
+                    messages.error(request, "Sorry there was an error, please try again!")
 
             else:
                 errors = shopper_login_form._errors.setdefault("email", ErrorList())

@@ -5,7 +5,10 @@ import json
 from models import Applicants
 import datetime
 from forms import ApplicantAnalysisForm
+import logging
 
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 class ApplicantAnalysisView(TemplateView):
     '''
@@ -33,7 +36,7 @@ class ApplicantAnalysisView(TemplateView):
             json_data = self.compute_applicant_data(start_date, end_date)
         else:
             return super(TemplateView, self).render_to_response({"form": app_analysis_form})
-        response = HttpResponse(json.dumps(json_data), content_type='application/json')
+        response = HttpResponse(json.dumps(json_data, sort_keys=True, indent=4), content_type='application/json')
         response['Content-Disposition'] = 'attachment; filename=funnel.json'
         messages.success(request, "Successfully downloaded result as funnel.json!")
         return response
@@ -113,4 +116,5 @@ class ApplicantAnalysisView(TemplateView):
                     final_data.update({date_str: applicant_workflow_count_dict})
         else:
             final_data = "No results found for given date range"
+            logger.debug("No search results returned for {0} to {1}".format(start_date, end_date))
         return final_data
