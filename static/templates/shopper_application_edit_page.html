@@ -5,11 +5,11 @@
 	<div id="page-wrapper">
 		<div id="page">
 			<div id="wide-content">
-
+                  <center>
 					<h2>Hey Shopper! You can edit your <br>application and submit again</h2>
-                <div class="main-content">
 
-                     <h3>Application Status :  {{workflow_state}}</h3>
+
+                     <h3 style="font-size:18px; color: #ee7600;">Application Status :  {{workflow_state}}</h3>
                     <br>
                     <p>
 					 <form method="POST" action=''> {% csrf_token %}
@@ -22,7 +22,7 @@
                    </p>
 
 
-				</div>
+				</center>
 			</div>
 		</div>
 	</div>

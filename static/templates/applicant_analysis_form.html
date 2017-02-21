@@ -5,6 +5,7 @@
 		<div id="page">
 
 			<div id="wide-content">
+                <center>
                  <ul class="messages">
     {% for message in messages %}
     <li style="color: orange;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>
@@ -14,7 +15,7 @@
     {% endfor %}
 </ul>
 
-              <div class="main-content">
+
                     <p>
 					 <form method="POST" action=''> {% csrf_token %}
                 {{form.as_p}}
@@ -24,7 +25,8 @@
                    </p>
 
 
-				</div>
+				</center>
+            </div>
 			</div>
 		</div>
 	</div>
