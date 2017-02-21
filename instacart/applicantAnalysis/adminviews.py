@@ -31,6 +31,7 @@ class ApplicantAnalysisView(TemplateView):
         app_analysis_form = ApplicantAnalysisForm(request.POST)
         json_data = {}
         if app_analysis_form.is_valid():
+            request_received_time_stamp = datetime.datetime.now()
             start_date = app_analysis_form.cleaned_data.get("start_date")
             end_date = app_analysis_form.cleaned_data.get("end_date")
             json_data = self.compute_applicant_data(start_date, end_date)
@@ -38,7 +39,9 @@ class ApplicantAnalysisView(TemplateView):
             return super(TemplateView, self).render_to_response({"form": app_analysis_form})
         response = HttpResponse(json.dumps(json_data, sort_keys=True, indent=4), content_type='application/json')
         response['Content-Disposition'] = 'attachment; filename=funnel.json'
-        messages.success(request, "Successfully downloaded result as funnel.json!")
+        request_fulfilled_time_stamp = datetime.datetime.now()
+        time_to_fullfill_request = request_fulfilled_time_stamp - request_received_time_stamp
+        logger.debug("Time to fulfill request from {0} to {1} : {2} secs".format(start_date, end_date, time_to_fullfill_request.total_seconds()))
         return response
 
     def compute_applicant_data(self, start_date, end_date):
