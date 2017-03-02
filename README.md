@@ -1,4 +1,4 @@
-# Instacart-Shopper-Challenege
+# Online Grocery Store Mock Site 
 
 ## Pre-requites
 * python 2.7
